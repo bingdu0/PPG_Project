@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/loginlogo_01"
+        app:layout_constraintBottom_toBottomOf="@id/horizontal_centre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/horizontal_centre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <LinearLayout
+        android:id="@+id/ll_account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_bg_login"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left"
+        app:layout_constraintTop_toTopOf="@id/horizontal_centre">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/user_name" />
+
+        <com.ppg.customview.ClearEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:background="@null"
+            android:drawableRight="@drawable/selector_delete"
+            android:hint="@string/input_name"
+            android:singleLine="true"
+            android:textColor="@color/test_color_base"
+            android:textColorHint="@color/test_color_grey"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/test_m" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_pwd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_bg_login"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left"
+        app:layout_constraintTop_toBottomOf="@id/ll_account">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/user_password" />
+
+        <com.ppg.customview.ClearEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:background="@null"
+            android:hint="@string/input_pwd"
+            android:inputType="textPassword"
+            android:textColor="@color/test_color_base"
+            android:textColorHint="@color/test_color_grey"
+            android:textCursorDrawable="@null"
+            android:textSize="@dimen/test_m" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/selector_bg_btn"
+        android:text="@string/login"
+        android:textColor="@color/text_color_blue"
+        android:textSize="@dimen/test_m"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_right"
+        app:layout_constraintStart_toStartOf="@+id/vertical_left" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/vertical_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+</android.support.constraint.ConstraintLayout>

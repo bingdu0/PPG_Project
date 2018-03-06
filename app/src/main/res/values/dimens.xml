@@ -1,0 +1,23 @@
+<resources>
+    <dimen name="tabhost_height">50dp</dimen>
+    <dimen name="bar_height">48dp</dimen>
+    <dimen name="layout_marginLR">12dp</dimen>
+    <dimen name="layout_marginT">6dp</dimen>
+    <dimen name="layout_marginT_S">2dp</dimen>
+    <dimen name="btn_height">40dp</dimen>
+    <dimen name="btn_marginLR">100dp</dimen>
+    <dimen name="btn_marginTB">10dp</dimen>
+    <dimen name="user_msg_margin">40dp</dimen>
+
+    <dimen name="test_s">16sp</dimen>
+    <dimen name="test_m">18sp</dimen>
+    <dimen name="test_l">20sp</dimen>
+    <dimen name="test_x">22sp</dimen>
+    <dimen name="test_xl">24sp</dimen>
+
+    <dimen name="text_paddingLR">12dp</dimen>
+    <dimen name="pw_padding">6dp</dimen>
+
+
+
+</resources>

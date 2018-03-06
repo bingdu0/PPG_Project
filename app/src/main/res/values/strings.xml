@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PPG</string>
+
+    <string name="input_name">请输入账号</string>
+    <string name="input_pwd">请输入密码</string>
+    <string name="login">登录</string>
+
+    <string name="change">更改</string>
+    <string name="save">保存</string>
+    <string name="affirm">确认</string>
+
+
+
+
+    <string name="r_t_d_r_01">请输入进展情况说明</string>
+    <string name="r_t_d_r_02">请输入如下内容 \n1.确认施工工艺。 \n2.约人现场基面情况并及时提醒施工方。\n3.首批次施工必须现场确认并及时反馈结果。\n4.确认施工人员施工颜色效果（如现场没有涂料请确认后跟进时间）。</string>
+    <string name="r_t_d_r_03">请输入如下内容 \n1.基面。\n2.产品特性。\n3.施工工艺。\n4.确认施工人员施工颜色效果（如现场没有涂料请确认后跟进时间）。</string>
+    <string name="r_t_d_r_04">请输入如下内容 \n1.如何配合控制。\n2.施工注意要点</string>
+
+    <string name="re_ha_co_01">含产品体系，现场问题描述</string>
+    <string name="re_ha_co_02">1.产品体系、数量、批次号（如多批次供货请注明问题批次）、施工面积。 \n2.施工基面情况（干燥度、碱性、平整度、腻子情况）。\n3.施工条件（施工公益、施工环境）。\n4.现场测试结果（如不能确定切根据现场情况决定）。</string>
+    <string name="re_ha_co_03">现场问题分析（产品资料、施工公益、基面情况、腻子问题、施工环境等）</string>
+    <string name="re_ha_co_04">1.根据现场情况给出合理的处理措施及整改建议。\n2.如确定是产品问题请及时叫停现场只供并及时反馈。</string>
+
+
+
+    <string name="base">xxxxxxxxxxx\nxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+
+
+
+</resources>
