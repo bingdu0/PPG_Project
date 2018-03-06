@@ -20,4 +20,8 @@
 
 
 
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="item_height_small">36dp</dimen>
 </resources>

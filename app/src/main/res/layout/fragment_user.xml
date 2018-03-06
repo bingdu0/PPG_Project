@@ -143,8 +143,10 @@
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/cl_user_manage"
+
+
+<android.support.constraint.ConstraintLayout
+       android:id="@+id/ll_mine_mytask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/layout_marginT"
@@ -157,6 +159,120 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/mine_my_task"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="29"
+        android:textColor="@color/test_color_grey"
+        android:textSize="@dimen/test_l"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/back_pj2"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/back_pj2"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:src="@drawable/back_r"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+<android.support.constraint.ConstraintLayout
+       android:id="@+id/ll_mine_mywarn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_marginT"
+        android:background="@color/white"
+        android:padding="@dimen/layout_marginLR"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_mine_mytask">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mine_my_warn"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="29"
+        android:textColor="@color/test_color_grey"
+        android:textSize="@dimen/test_l"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/back_pj3"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/back_pj3"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:src="@drawable/back_r"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+       android:id="@+id/ll_mine_myissue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_marginT"
+        android:background="@color/white"
+        android:padding="@dimen/layout_marginLR"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_mine_mytask">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mine_my_issue"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="29"
+        android:textColor="@color/test_color_grey"
+        android:textSize="@dimen/test_l"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/back_pj4"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/back_pj4"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:src="@drawable/back_r"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_user_manage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_marginT"
+        android:background="@color/white"
+        android:padding="@dimen/layout_marginLR"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_mine_mywarn">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="用户管理"
             android:textColor="@color/test_color_base"
             android:textSize="@dimen/test_m"
@@ -165,6 +281,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+
             android:id="@+id/back_user"
             android:layout_width="20dp"
             android:layout_height="0dp"
@@ -173,7 +290,6 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
-
     <Button
         android:id="@+id/exit_login"
         android:layout_width="match_parent"

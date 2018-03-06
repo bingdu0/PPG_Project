@@ -15,5 +15,7 @@
         <item name="colorAccent">#FDFDFE</item>
         <item name="android:typeface">monospace</item>
     </style>
-
+    <style name="contactPopuAnimationExit">
+        <item name="android:windowExitAnimation">@anim/contactpopu</item>
+    </style>
 </resources>

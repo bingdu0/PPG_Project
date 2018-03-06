@@ -63,6 +63,6 @@ dependencies {
     }
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.0.1"
 
-    //  https://github.com/razerdp/BasePopup
-    compile 'com.github.razerdp:BasePopup:1.8.8'
+    //  https://github.com/razerdp/BasePopup 1.8.8
+    compile 'com.github.razerdp:BasePopup:1.8.9'
 }

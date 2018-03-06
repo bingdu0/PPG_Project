@@ -3,10 +3,13 @@ package com.ppg.mvp.view.fragment;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.ppg.R;
 import com.ppg.base.BaseFragment;
 import com.ppg.base.BasePresenter;
+import com.ppg.mvp.view.activity.LoginActivity;
 import com.ppg.mvp.view.activity.MyProjectActivity;
 import com.ppg.mvp.view.activity.UserManageActivity;
 import com.ppg.mvp.view.activity.UserMsgActivity;
@@ -27,6 +30,9 @@ public class UserFragment extends BaseFragment {
     ConstraintLayout clPj;
     @BindView(R.id.cl_user_manage)
     ConstraintLayout clUserManage;
+    @BindView(R.id.exit_login)
+    Button ivLogin;
+
 
 
     public static UserFragment getInstance() {
@@ -54,7 +60,7 @@ public class UserFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.cl_user_msg, R.id.cl_pj, R.id.cl_user_manage})
+    @OnClick({R.id.cl_user_msg, R.id.cl_pj, R.id.cl_user_manage,R.id.btn_add,R.id.exit_login})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cl_user_msg:
@@ -69,6 +75,12 @@ public class UserFragment extends BaseFragment {
                 Intent intent=new Intent(getActivity(), UserManageActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.exit_login:
+                Intent intent3=new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent3);
+                getActivity().finish();
+                break;
+
         }
     }
 }
