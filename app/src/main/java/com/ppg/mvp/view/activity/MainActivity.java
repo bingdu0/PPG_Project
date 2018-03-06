@@ -15,11 +15,9 @@ import com.ppg.utils.FragmentKeyUtil;
 
 public class MainActivity extends BaseActivity {
 
-    private String mTitle[] = new String[]{"首页", "新增", "我的"};
+    private String mTitle[] = new String[]{"项目管理", "任务管理", "问题管理", "个人中心"};
     // 定义数组来存放按钮图片
-    private int mImageViewArray[] = {R.drawable.selector_tab_home,
-            R.drawable.selector_tab_add, R.drawable.selector_tab_user};
-    // 定义FragmentTabHost对象
+    private int mImageViewArray[] = {R.mipmap.icon_project_manage,R.mipmap.icon_task_manage,R.mipmap.icon_problem_manage,R.mipmap.icon_personal_manage};
     private FragmentTabHost mTabHost;
 
     @Override
