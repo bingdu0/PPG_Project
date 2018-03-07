@@ -1,5 +1,6 @@
 package com.ppg.mvp.view.activity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -18,12 +19,14 @@ import com.ppg.utils.PopupWindowUtil;
 import com.ppg.utils.StringUtils;
 import com.ppg.utils.ToastUtil;
 import com.ppg.utils.ToolUtil;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 import me.nereo.multi_image_selector.MultiImageSelector;
 import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
@@ -31,7 +34,7 @@ import me.nereo.multi_image_selector.MultiImageSelectorActivity;
  * Created by lixu on 2018/3/7.
  */
 
-public class OtherInfoActivity extends BaseActivity{
+public class OtherInfoActivity extends BaseActivity {
     private final int MULTI_IMG = 130;
 
     @BindView(R.id.rv_horizontal)
@@ -43,7 +46,7 @@ public class OtherInfoActivity extends BaseActivity{
     @BindView(R.id.tv_sp)
     TextView tv_sp;
 
-    private  String mType;
+    private String mType;
 
 
     /**
@@ -53,6 +56,7 @@ public class OtherInfoActivity extends BaseActivity{
     private MyImgAdapter myImgAdapter;
     private GridLayoutManager gridLayoutManager;
     private ArrayList<String> mImageList = new ArrayList<>();
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_other_info;
@@ -67,9 +71,9 @@ public class OtherInfoActivity extends BaseActivity{
     protected void initData() {
 
         Intent gIntent = getIntent();
-        mType = gIntent.getExtras().getString("type","");
+        mType = gIntent.getExtras().getString("type", "");
         tvTitle.setText(mType);
-        if(StringUtils.isEmpty(mType) && mType.equals("落实情况")){
+        if (StringUtils.isEmpty(mType) && mType.equals("落实情况")) {
             ll_spinner.setVisibility(View.GONE);
         }
 
@@ -82,10 +86,23 @@ public class OtherInfoActivity extends BaseActivity{
         recyclerViewImg.setAdapter(myImgAdapter);
         myImgAdapter.setOnItemClickListener(new MyImgAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Intent picIntent = new Intent(OtherInfoActivity.this, ImageActivity.class);
-                picIntent.putExtra(ImageActivity.IMAGE_INTENT, mImageList.get(position));
-                startActivity(picIntent);
+            public void onItemClick(View view, final int position) {
+
+                RxPermissions rxPermissions = new RxPermissions(OtherInfoActivity.this);
+                rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+                            Intent picIntent = new Intent(OtherInfoActivity.this, ImageActivity.class);
+                            picIntent.putExtra(ImageActivity.IMAGE_INTENT, mImageList.get(position));
+                            startActivity(picIntent);
+                        } else {
+                            // 用户拒绝了该权限，并且选中不再询问,引导用户跳转权限管理页面
+                        }
+                    }
+                });
+
+
             }
 
             @Override
@@ -116,14 +133,28 @@ public class OtherInfoActivity extends BaseActivity{
 
 
     private void startCameras() {
-        MultiImageSelector.create()
-                .showCamera(true) // 是否显示相机. 默认为显示
-                .count(6) // 最大选择图片数量, 默认为9. 只有在选择模式为多选时有效
-                .single() // 单选模式
-                .multi() // 多选模式, 默认模式;
-                .origin(mImageList)
-                .start(OtherInfoActivity.this, MULTI_IMG);
+        //添加相机，存储权限
+        RxPermissions rxPermissions = new RxPermissions(OtherInfoActivity.this);
+        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                if (aBoolean) {
+                    MultiImageSelector.create()
+                            .showCamera(true) // 是否显示相机. 默认为显示
+                            .count(6) // 最大选择图片数量, 默认为9. 只有在选择模式为多选时有效
+                            .single() // 单选模式
+                            .multi() // 多选模式, 默认模式;
+                            .origin(mImageList)
+                            .start(OtherInfoActivity.this, MULTI_IMG);
+                } else {
+                    // 用户拒绝了该权限，并且选中不再询问,引导用户跳转权限管理页面
+                }
+            }
+        });
+
+
     }
+
     private void showSelectDialog(final int pos) {
         if (!ToolUtil.isEmpty(mImageList)) {
             mImageList.remove(pos);
@@ -153,6 +184,7 @@ public class OtherInfoActivity extends BaseActivity{
                 })
                 .show();*/
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -168,7 +200,8 @@ public class OtherInfoActivity extends BaseActivity{
                 break;
         }
     }
-    public void setPopupWindow(View mView){
+
+    public void setPopupWindow(View mView) {
         final List<String> items = new ArrayList<>();
         items.add("供应商问题");
         items.add("其它问题");

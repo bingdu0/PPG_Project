@@ -61,6 +61,11 @@ dependencies {
         // if you don't use android.app.Fragment you can exclude support for them
         exclude module: "support-v13"
     }
+
+    //RxPermissions 权限
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.0.1"
 
     //  https://github.com/razerdp/BasePopup 1.8.8
@@ -69,4 +74,7 @@ dependencies {
     //微信图片选择器https://github.com/lovetuzitong/MultiImageSelector/blob/master/README_zh.md
     //compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
     compile 'com.hx.multi-image-selector:multi-image-selector:1.2.2'
+
+    //WebView 封装
+    compile 'com.just.agentweb:agentweb:4.0.2'
 }

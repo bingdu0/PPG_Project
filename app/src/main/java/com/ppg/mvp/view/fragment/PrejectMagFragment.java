@@ -74,8 +74,10 @@ public class PrejectMagFragment extends BaseFragment {
                         break;
                     case R.id.imageView4:
                         LogUtils.i("YWQ","点击摄像头");
-                        Intent intent=new Intent(getActivity(), CameraActivity.class);
-                        startActivity(intent);
+                        /*Intent intent=new Intent(getActivity(), CameraActivity.class);
+                        startActivity(intent);*/
+
+
                         break;
                     default:
                         break;
