@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/base_bar" />
+    <LinearLayout
+        android:id="@+id/ll_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="进度:"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_s" />
+
+        <TextView
+            android:id="@+id/tv_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="供应商问题"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_s" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:src="@drawable/back_d_e" />
+
+    </LinearLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:background="@drawable/bg_frame_tv"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:hint="点击填写"
+        android:textSize="@dimen/test_s"
+        android:gravity="top"
+        android:padding="@dimen/dp_4"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/line_px"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/height_search"
+        android:orientation="horizontal"
+        android:paddingBottom="6dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="6dp"
+        android:layout_gravity="center_horizontal"
+        >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            >
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</LinearLayout>

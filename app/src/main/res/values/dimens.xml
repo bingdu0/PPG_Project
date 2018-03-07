@@ -9,6 +9,7 @@
     <dimen name="btn_marginTB">10dp</dimen>
     <dimen name="user_msg_margin">40dp</dimen>
 
+    <dimen name="test_ss">14sp</dimen>
     <dimen name="test_s">16sp</dimen>
     <dimen name="test_m">18sp</dimen>
     <dimen name="test_l">20sp</dimen>
@@ -17,11 +18,9 @@
 
     <dimen name="text_paddingLR">12dp</dimen>
     <dimen name="pw_padding">6dp</dimen>
-
-
-
-
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="item_height_small">36dp</dimen>
+    <dimen name="height_search">40dp</dimen>
+    <dimen name="line_px">1px</dimen>
 </resources>

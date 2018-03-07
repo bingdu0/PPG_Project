@@ -65,4 +65,8 @@ dependencies {
 
     //  https://github.com/razerdp/BasePopup 1.8.8
     compile 'com.github.razerdp:BasePopup:1.8.9'
+
+    //微信图片选择器https://github.com/lovetuzitong/MultiImageSelector/blob/master/README_zh.md
+    //compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
+    compile 'com.hx.multi-image-selector:multi-image-selector:1.2.2'
 }

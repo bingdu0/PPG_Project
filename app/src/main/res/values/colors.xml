@@ -24,9 +24,10 @@
     <color name="item_view_top">#eAeAeA</color>
     <color name="blue">#ff3F51B5</color>
     <color name="btn_back_d">#333F51B5</color>
+    <color name="listItemPressedColor">#19000000</color>
+    <color name="listItemPressedColor2">@color/tran_hui_press</color>
+    <color name="tran_hui_press">#44000000</color>
 
-
-
-
+    <color name="tran_hui">#22000000</color>
 
 </resources>

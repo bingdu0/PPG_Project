@@ -111,6 +111,22 @@
         <activity android:name=".mvp.view.activity.TaskManageActivity"
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait"/>
+        <!--问题详情-->
+        <activity android:name=".mvp.view.activity.IssueInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+    <!--任务详情-->
+        <activity android:name=".mvp.view.activity.TaskInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+
+        <!--各种详情-->
+        <activity android:name=".mvp.view.activity.OtherInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.view.activity.ImageActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
 
     </application>
 

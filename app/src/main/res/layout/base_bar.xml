@@ -68,6 +68,17 @@
         android:textColor="@color/text_color_blue"
         android:visibility="gone"
         />
+<TextView
+        android:text="重新指派"
+        android:id="@+id/tv_rest"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:padding="8dp"
+        android:textSize="@dimen/test_m"
+        android:textColor="@color/text_color_blue"
+        android:visibility="gone"
+        />
 
     <View
         android:layout_width="match_parent"
