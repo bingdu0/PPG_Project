@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 
 import com.ppg.mvp.view.fragment.AddFragment;
 import com.ppg.mvp.view.fragment.HomeFragment;
+import com.ppg.mvp.view.fragment.ProblemManageFragment;
+import com.ppg.mvp.view.fragment.TaskManageFragment;
 import com.ppg.mvp.view.fragment.UserFragment;
 
 import java.util.ArrayList;
@@ -39,12 +41,15 @@ public class FragmentKeyUtil {
 
 	public static void initFragment() {
 		Fragment homeFragment = HomeFragment.getInstance();
-		Fragment addFragment = AddFragment.getInstance();
+		TaskManageFragment taskFragment = TaskManageFragment.getInstance();
+		ProblemManageFragment problemFragment = ProblemManageFragment.getInstance();
+
 		Fragment userFragment = UserFragment.getInstance();
 		
 		if (listfragment.isEmpty()) {
 			listfragment.add(homeFragment);
-			listfragment.add(addFragment);
+			listfragment.add(taskFragment);
+			listfragment.add(problemFragment);
 			listfragment.add(userFragment);
 		}
 	}
