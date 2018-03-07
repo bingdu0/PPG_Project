@@ -1,6 +1,5 @@
 package com.ppg.mvp.view.activity;
 
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -16,15 +15,16 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.ppg.R;
-import com.ppg.mvp.view.adapter.DialogScreenAdapter;
 import com.ppg.base.BaseActivity;
 import com.ppg.base.BaseApplication;
+import com.ppg.base.BaseFragment;
 import com.ppg.base.BasePresenter;
 import com.ppg.bean.ScreenDialogBean;
 import com.ppg.bean.TestBean;
+import com.ppg.mvp.view.adapter.DialogScreenAdapter;
 import com.ppg.mvp.view.adapter.MyProjectAdapter;
+import com.ppg.mvp.view.adapter.TaskManageAdapter;
 import com.ppg.utils.PopupWindowUtil;
 
 import java.util.ArrayList;
@@ -33,16 +33,17 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * Create by Donny.
- * 2017/12/16
- * Description：
- * 我的项目
+ * Created by LiuKai on 2018/3/6.
  */
-public class MyProjectActivity extends BaseActivity{
-    private MyProjectAdapter projectAdapter;
+
+public class TaskManageActivity extends BaseActivity {
+    private static TaskManageActivity taskManageFragment;
+    private TaskManageAdapter mTaskManageAdapter;
     private List<TestBean> testBeanList = new ArrayList<>();
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+
+    @BindView(R.id.rv_task_manager)
+    RecyclerView rvTaskManager;
+
 
     @BindView(R.id.tv_filtrate)
     TextView tv_filtrate;
@@ -66,13 +67,13 @@ public class MyProjectActivity extends BaseActivity{
     private TextView bt_popup_rest;
     private TextView bt_popup_finish;
 
-
-
-
+    public static TaskManageActivity getInstance() {
+        return taskManageFragment == null ? new TaskManageActivity() : taskManageFragment;
+    }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_my_project;
+        return R.layout.activity_task_manager;
     }
 
     @Override
@@ -82,24 +83,19 @@ public class MyProjectActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-        baseTitle.setText("我的项目");
+        baseTitle.setText("我的任务");
+
+
+
+
         initContactsBottmoPopu();
         initAllView();
         getData();
-
 
     }
 
     @Override
     protected void initListener() {
-        recyclerView.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent intent=new Intent(MyProjectActivity.this,ProjectDetailActivity.class);
-                startActivity(intent);
-            }
-        });
-
         mcontactsBottompopup
                 .setOnDismissListener(new PopupWindow.OnDismissListener() {
 
@@ -194,39 +190,35 @@ public class MyProjectActivity extends BaseActivity{
 
             }
         });
-
     }
-
-
     private void initAllView(){
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(BaseApplication.getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        projectAdapter=new MyProjectAdapter(R.layout.item_home,testBeanList);
-        recyclerView.setAdapter(projectAdapter);
+        rvTaskManager.setLayoutManager(linearLayoutManager);
+        mTaskManageAdapter = new TaskManageAdapter(R.layout.item_mytask, testBeanList);
+        rvTaskManager.setAdapter(mTaskManageAdapter);
 
         //项目状态初始化
-        dialogScreenAdapterStatus = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenStatusList);
-        gridLayoutManagerStatus = new GridLayoutManager(MyProjectActivity.this,3);
+        dialogScreenAdapterStatus = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenStatusList);
+        gridLayoutManagerStatus = new GridLayoutManager(TaskManageActivity.this,3);
         rvDialogStatus.setLayoutManager(gridLayoutManagerStatus);
         rvDialogStatus.setHasFixedSize(true);
         rvDialogStatus.setItemAnimator(new DefaultItemAnimator());
         rvDialogStatus.setAdapter(dialogScreenAdapterStatus);
 
         //项目负责人初始化
-        dialogScreenAdapterPeople = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenPeopleList);
-        gridLayoutManagerPeople = new GridLayoutManager(MyProjectActivity.this,3);
+        dialogScreenAdapterPeople = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenPeopleList);
+        gridLayoutManagerPeople = new GridLayoutManager(TaskManageActivity.this,3);
         rvDialogPeople.setLayoutManager(gridLayoutManagerPeople);
         rvDialogPeople.setHasFixedSize(true);
         rvDialogPeople.setItemAnimator(new DefaultItemAnimator());
         rvDialogPeople.setAdapter(dialogScreenAdapterPeople);
     }
-
-    private void getData(){
+    private void getData() {
         for (int i = 0; i < 19; i++) {
             testBeanList.add(new TestBean());
         }
-        projectAdapter.notifyDataSetChanged();
+        mTaskManageAdapter.notifyDataSetChanged();
 
         screenStatusList.add(new ScreenDialogBean("新建",false));
         screenStatusList.add(new ScreenDialogBean("施工中",false));
@@ -242,32 +234,12 @@ public class MyProjectActivity extends BaseActivity{
         screenPeopleList.add(new ScreenDialogBean("陈学军",false));
         dialogScreenAdapterPeople.notifyDataSetChanged();
     }
-
-
-
-//    @OnClick({R.id.tv_filtrate,R.id.cl_time})
-//    public void onViewClicked(View view) {
-//        switch (view.getId()) {
-//            case R.id.cl_time:
-//                break;
-//          case R.id.tv_filtrate:
-//              PopupScreenDialog popup = new PopupScreenDialog(MyProjectActivity.this);
-//              popup.showPopupWindow();
-//                break;
-//
-//
-//
-//        }
-//    }
-
-
-
     private void initContactsBottmoPopu() {
 
         contactBottomPopulayout = View.inflate(this,
                 R.layout.dialog_screen, null);
 
-         rvDialogStatus = contactBottomPopulayout.findViewById(R.id.rv_dialog_status);
+        rvDialogStatus = contactBottomPopulayout.findViewById(R.id.rv_dialog_status);
         rvDialogPeople = contactBottomPopulayout.findViewById(R.id.rv_dialog_people);
 
         mcontactsBottompopup = new PopupWindow(contactBottomPopulayout);
@@ -297,7 +269,7 @@ public class MyProjectActivity extends BaseActivity{
         items.add("项目负责人");
 
         // 点击控件后显示popup窗口
-        final PopupWindowUtil popupWindow = new PopupWindowUtil(MyProjectActivity.this, items);
+        final PopupWindowUtil popupWindow = new PopupWindowUtil(TaskManageActivity.this, items);
 
         popupWindow.setItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

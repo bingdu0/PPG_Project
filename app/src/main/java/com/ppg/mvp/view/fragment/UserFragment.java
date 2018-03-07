@@ -11,6 +11,7 @@ import com.ppg.base.BaseFragment;
 import com.ppg.base.BasePresenter;
 import com.ppg.mvp.view.activity.LoginActivity;
 import com.ppg.mvp.view.activity.MyProjectActivity;
+import com.ppg.mvp.view.activity.TaskManageActivity;
 import com.ppg.mvp.view.activity.UserManageActivity;
 import com.ppg.mvp.view.activity.UserMsgActivity;
 
@@ -30,6 +31,10 @@ public class UserFragment extends BaseFragment {
     ConstraintLayout clPj;
     @BindView(R.id.cl_user_manage)
     ConstraintLayout clUserManage;
+    @BindView(R.id.ll_mine_mytask)
+    ConstraintLayout ll_mine_mytask;
+
+
     @BindView(R.id.exit_login)
     Button ivLogin;
 
@@ -60,7 +65,7 @@ public class UserFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.cl_user_msg, R.id.cl_pj, R.id.cl_user_manage,R.id.btn_add,R.id.exit_login})
+    @OnClick({R.id.cl_user_msg, R.id.cl_pj, R.id.cl_user_manage,R.id.btn_add,R.id.exit_login,R.id.ll_mine_mytask})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.cl_user_msg:
@@ -79,6 +84,10 @@ public class UserFragment extends BaseFragment {
                 Intent intent3=new Intent(getActivity(),LoginActivity.class);
                 startActivity(intent3);
                 getActivity().finish();
+                break;
+            case R.id.ll_mine_mytask:
+                Intent intent4=new Intent(getActivity(), TaskManageActivity.class);
+                startActivity(intent4);
                 break;
 
         }

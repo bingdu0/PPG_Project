@@ -12,6 +12,7 @@
     <string name="mine_my_task">我的任务</string>
     <string name="mine_my_warn">我的提醒</string>
     <string name="mine_my_issue">我的问题</string>
+    <string name="mine_my_alert">我的提醒</string>
 
     <string name="popup_rest">重置</string>
     <string name="popup_finish">完成</string>

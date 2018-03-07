@@ -107,6 +107,11 @@
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait"/>
 
+        <!--我的任务-->
+        <activity android:name=".mvp.view.activity.TaskManageActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

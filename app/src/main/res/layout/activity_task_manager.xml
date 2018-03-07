@@ -72,7 +72,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/rv_task_manager"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/white"

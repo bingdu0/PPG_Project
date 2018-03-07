@@ -259,6 +259,47 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+       android:id="@+id/ll_mine_myalert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/layout_marginT"
+        android:background="@color/white"
+        android:padding="@dimen/layout_marginLR"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_mine_myissue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mine_my_alert"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="29"
+        android:textColor="@color/test_color_grey"
+        android:textSize="@dimen/test_l"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/back_pj5"
+        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/back_pj5"
+            android:layout_width="20dp"
+            android:layout_height="0dp"
+            android:src="@drawable/back_r"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_user_manage"
         android:layout_width="match_parent"
@@ -268,7 +309,7 @@
         android:padding="@dimen/layout_marginLR"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_mine_mywarn">
+        app:layout_constraintTop_toBottomOf="@id/ll_mine_myalert">
 
         <TextView
             android:layout_width="wrap_content"
