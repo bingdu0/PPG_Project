@@ -39,7 +39,7 @@
             android:paddingLeft="@dimen/layout_marginLR"
             android:text="请输入项目名称"
             android:paddingBottom="@dimen/sp_12"
-            android:textSize="@dimen/test_m"
+            android:textSize="@dimen/test_s"
             android:paddingTop="@dimen/sp_12"
             android:textColor="@color/test_color_feeble"
             app:layout_constraintLeft_toRightOf="@id/tv_01"

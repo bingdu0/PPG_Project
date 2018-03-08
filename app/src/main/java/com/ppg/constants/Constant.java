@@ -12,7 +12,7 @@ public class Constant {
     public static final String EDIT_HINT = "edit_hint";
 
 
-//    public static final String TITLE_STRINGS = "title_strings";
+    //    public static final String TITLE_STRINGS = "title_strings";
     public static final String STRINGS_TITLES = "strings_titles";
     public static final String STRINGS_TITLE = "strings_title";
     public static final String STRINGS_CONTENTS = "strings_contents";
@@ -92,4 +92,9 @@ public class Constant {
      * tv_ev_b
      */
     public static final int ITEM_TYPE_TV_EV_B = 14;
+
+    /**
+     * cb_tv_tv
+     */
+    public static final int ITEM_TYPE_CB_TV_TV = 15;
 }

@@ -24,7 +24,7 @@ import butterknife.BindView;
  * Create by Donny.
  * 2017/12/17
  * Description：
- * 项目信息
+ * 天气状况
  */
 public class ReportHaCoTwoActivity extends BaseActivity{
     private List<TestBean> textBeanList = new ArrayList<>();

@@ -38,7 +38,7 @@
             android:id="@+id/tv_02"
             android:layout_width="0dp"
             android:text="xxxxxx"
-            android:textSize="@dimen/test_m"
+            android:textSize="@dimen/test_s"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/layout_marginLR"
             android:background="@null"

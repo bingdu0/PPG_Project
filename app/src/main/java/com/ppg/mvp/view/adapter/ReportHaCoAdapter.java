@@ -86,7 +86,7 @@ public class ReportHaCoAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseV
         }
 
         switch (helper.getAdapterPosition()) {
-            case 10:
+            case 11:
                 helper.setVisible(R.id.view_top, true);
                 break;
             default:

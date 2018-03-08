@@ -18,9 +18,10 @@
 
     <dimen name="text_paddingLR">12dp</dimen>
     <dimen name="pw_padding">6dp</dimen>
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">15dp</dimen>
+    <dimen name="activity_vertical_margin">15dp</dimen>
     <dimen name="item_height_small">36dp</dimen>
     <dimen name="height_search">40dp</dimen>
     <dimen name="line_px">1px</dimen>
+    <dimen name="line_width_px">10px</dimen>
 </resources>

@@ -34,8 +34,8 @@ public class ReportSeReActivity extends BaseActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     private ReportHaCoAdapter mAdapter;
-    private String[] tv01 = {"项目信息：", "涂料体系：", "涂料供应商：","技术服务人员：", "施工单位：", "施工方负责人：", "主要施工内容：", "开始时间：", "结束时间：", "天气情况：", "现场工程情况：", "上次巡检整改落实情况：", "本次项目主要问题：", "现场问及配合建议：", "现场问题分析", "施工建议及整改措施", "保存"};
-    private String[] et02 = {"上海喜来登大酒店", "请输入涂料体系信息", "请输入涂料供应商", "请输入技术服务人员信息", "请输入施工单位信息", "请输入施工方负责人", "请输入主要施工内容", "2017-10-23","2017-10-28", "点击查看", "点击查看", "点击查看", "点击查看", "点击查看", "点击查看","点击查看",""};
+    private String[] tv01 = {"项目信息：", "涂料体系：", "涂料供应商：", "技术服务人员：", "施工单位：", "施工方负责人：", "主要施工内容：", "开始时间：", "结束时间：", "天气情况：", "项目目前进展", "现场样板效果及问题：", "竞品涂料样板效果及问题：", "针对样板产品问题的建议：", "保存"};
+    private String[] et02 = {"上海喜来登大酒店", "请输入涂料体系信息", "请输入涂料供应商", "请输入技术服务人员信息", "请输入施工单位信息", "请输入施工方负责人", "请输入主要施工内容", "2017-10-23", "2017-10-28", "点击查看详情", "打桩阶段", "点击查看详情", "点击查看详情", "点击查看详情", ""};
     private Intent intent;
 
     @Override
@@ -67,12 +67,12 @@ public class ReportSeReActivity extends BaseActivity {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 switch (view.getId()) {
-                case R.id.btn_back_d:
-                    PopupWindowUtil.setPopupWindow(BaseApplication.getContext(), textBeanList, mAdapter, view, position);
-                    break;
+                    case R.id.btn_back_d:
+                        PopupWindowUtil.setPopupWindow(BaseApplication.getContext(), textBeanList, mAdapter, view, position);
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
                 }
             }
         });
@@ -91,43 +91,24 @@ public class ReportSeReActivity extends BaseActivity {
                         startActivity(intent);
                         break;
 
-                    case 10:
-                        intent = new Intent(ReportSeReActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"现场工程情况");
-                        intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.base));
+
+                    case 11:  //现场样板效果及问题：
+                        intent = new Intent(ReportSeReActivity.this, SampleProblemsActivity.class);
                         startActivity(intent);
                         break;
 
-                    case 11:
-                        intent = new Intent(ReportSeReActivity.this, ReportSpRaTwoActivity.class);
-                        startActivity(intent);
-                        break;
+                    case 12:  //竞品涂料样板效果及问题：
+                        intent = new Intent(ReportSeReActivity.this, SampleProblemsActivity.class);
 
-                    case 12:
-                        intent = new Intent(ReportSeReActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"本次项目主要问题");
-                        intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.base));
                         startActivity(intent);
                         break;
                     case 13:
                         intent = new Intent(ReportSeReActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"现场问及配合建议");
-                        intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.base));
+                        intent.putExtra(Constant.EDIT_TITLE, "针对样板产品问题的建设");
+                        intent.putExtra(Constant.EDIT_HINT, BaseApplication.getContext().getResources().getString(R.string.base));
                         startActivity(intent);
                         break;
 
-                    case 14:
-                        intent = new Intent(ReportSeReActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"现场问题分析");
-                        intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.base));
-                        startActivity(intent);
-                        break;
-                    case 15:
-                        intent = new Intent(ReportSeReActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"施工建议及整改措施");
-                        intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.base));
-                        startActivity(intent);
-                        break;
                     default:
                         break;
                 }
@@ -194,7 +175,7 @@ public class ReportSeReActivity extends BaseActivity {
 
                         break;
                     case 10:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_R_BTN_R, tv01[i], et02[i]));
+                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_BTN_D, tv01[i], et02[i]));
 
                         break;
                     case 11:
@@ -210,14 +191,14 @@ public class ReportSeReActivity extends BaseActivity {
 
                         break;
                     case 14:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_R_BTN_R, tv01[i], et02[i]));
 
+                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_BTN, tv01[i], et02[i]));
                         break;
                     case 15:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_R_BTN_R, tv01[i], et02[i]));
+
                         break;
                     case 16:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_BTN, tv01[i], et02[i]));
+
                         break;
                     case 17:
                         break;

@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ppg">
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
+        android:name=".base.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".base.BaseApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.view.activity.LoginActivity"
+        <activity
+            android:name=".mvp.view.activity.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,131 +21,141 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".mvp.view.activity.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.UserManageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.UserMsgActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.MyProjectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ProjectDetailActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.AddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeDisRActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeDisROneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.EditActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeDisRTwoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeDisRThreeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeDisRFourActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportHaCoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportSpRaActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportSeReActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportTeReActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportHaCoTwoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.EditImgAddActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportSpRaOneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportSpRaTwoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ReportSpRaTwoOneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.CameraActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <activity android:name=".mvp.view.activity.MainActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
+        <!-- 我的任务 -->
+        <activity
+            android:name=".mvp.view.activity.TaskManageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 问题详情 -->
+        <activity
+            android:name=".mvp.view.activity.IssueInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 任务详情 -->
+        <activity
+            android:name=".mvp.view.activity.TaskInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <activity android:name=".mvp.view.activity.UserManageActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
+        <!-- 各种详情 -->
+        <activity
+            android:name=".mvp.view.activity.OtherInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <activity android:name=".mvp.view.activity.UserMsgActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait"/>
+        <!-- 现场实操情况 -->
+        <activity
+            android:name=".mvp.view.activity.RealityInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
 
-        <activity android:name=".mvp.view.activity.MyProjectActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ProjectDetailActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.AddActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportTeDisRActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportTeDisROneActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.EditActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".mvp.view.activity.ReportTeDisRTwoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportTeDisRThreeActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportTeDisRFourActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportHaCoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportSpRaActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportSeReActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportTeReActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportHaCoTwoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.EditImgAddActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportSpRaOneActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportSpRaTwoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.ReportSpRaTwoOneActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".mvp.view.activity.CameraActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <!--我的任务-->
-        <activity android:name=".mvp.view.activity.TaskManageActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-        <!--问题详情-->
-        <activity android:name=".mvp.view.activity.IssueInfoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-    <!--任务详情-->
-        <activity android:name=".mvp.view.activity.TaskInfoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <!--各种详情-->
-        <activity android:name=".mvp.view.activity.OtherInfoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-        <!--现场实操情况-->
-        <activity android:name=".mvp.view.activity.RealityInfoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-<!--现场施工问题隐患-->
-        <activity android:name=".mvp.view.activity.RealityIssueInfoActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-<!--现场投诉问题概括-->
-        <activity android:name=".mvp.view.activity.ComplainBrieflyActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
-
-        <activity android:name=".mvp.view.activity.ImageActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"
-            android:screenOrientation="portrait"/>
-
+        <!-- 现场施工问题隐患 -->
+        <activity
+            android:name=".mvp.view.activity.RealityIssueInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 现场投诉问题概括 -->
+        <activity
+            android:name=".mvp.view.activity.ComplainBrieflyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".mvp.view.activity.ImageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".mvp.view.activity.BaseAreaActivity" />
+        <activity android:name=".mvp.view.activity.ConstructConditionActivity" />
+        <activity android:name=".mvp.view.activity.SampleProblemsActivity" />
+        <activity android:name=".mvp.view.activity.CoatingSampleProblemActivity"></activity>
     </application>
 
 </manifest>

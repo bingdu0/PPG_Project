@@ -40,7 +40,7 @@
             android:padding="@dimen/text_paddingLR"
             android:text="请输入项目名称"
             android:textColor="@color/test_color_base"
-            android:textSize="@dimen/test_m"
+            android:textSize="@dimen/test_s"
             app:layout_constraintEnd_toStartOf="@+id/btn_back_d"
             app:layout_constraintLeft_toRightOf="@id/tv_01"
              />
