@@ -93,7 +93,7 @@ public class ReportHaCoActivity extends BaseActivity {
 
 
                     case 10:
-                        intent = new Intent(ReportHaCoActivity.this, EditActivity.class);
+                        intent = new Intent(ReportHaCoActivity.this, ComplainBrieflyActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"现场投诉问题概括");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.re_ha_co_01));
                         startActivity(intent);

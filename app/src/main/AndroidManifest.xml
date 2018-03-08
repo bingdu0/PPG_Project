@@ -124,6 +124,22 @@
         <activity android:name=".mvp.view.activity.OtherInfoActivity"
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait"/>
+
+        <!--现场实操情况-->
+        <activity android:name=".mvp.view.activity.RealityInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+
+<!--现场施工问题隐患-->
+        <activity android:name=".mvp.view.activity.RealityIssueInfoActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+<!--现场投诉问题概括-->
+        <activity android:name=".mvp.view.activity.ComplainBrieflyActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:screenOrientation="portrait"/>
+
+
         <activity android:name=".mvp.view.activity.ImageActivity"
             android:windowSoftInputMode="adjustPan|stateHidden"
             android:screenOrientation="portrait"/>

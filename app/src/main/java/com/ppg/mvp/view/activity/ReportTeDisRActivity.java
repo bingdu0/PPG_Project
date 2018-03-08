@@ -34,8 +34,8 @@ public class ReportTeDisRActivity extends BaseActivity {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     private ReportTeDisRAdapter mAdapter;
-    private String[] tv01 = {"项目名称：", "销售代表：", "技术服务代表：", "甲方代表：", "监理代表：", "经销商代表：", "施工方代表：", "技术交底日期：", "目前进展情况：", "涂装方案：", "施工方式：", "施工指导：", "现场实操情况：", "现场施工问题隐患：", "施工建议&配合措施：", "保存"};
-    private String[] et02 = {"上海喜来登大酒店", "请输入销售代表信息", "请输入技术服务代表信息", "请输入甲方代表信息", "请输入监理代表信息", "请输入经销商代表信息", "请输入施工方信息", "2017-10-23", "", "点击查看详情", "点击查看详情", "点击查看详情", "", "点击查看详情", "", ""};
+    private String[] tv01 = {"项目信息：", "销售代表：", "技术服务代表：", "甲方代表：", "监理代表：", "经销商代表：", "施工方代表：", "服务日期：", "目前进展情况：", "涂装方案：", "施工方式：", "施工指导：", "现场工程情况：", "现场实操情况：", "现场施工问题隐患：", "施工建议&配合措施：", "保存"};
+    private String[] et02 = {"上海喜来登大酒店", "请输入销售代表信息", "请输入技术服务代表信息", "请输入甲方代表信息", "请输入监理代表信息", "请输入经销商代表信息", "请输入施工方信息", "2017-10-23", "", "点击查看详情","点击查看详情", "点击查看详情", "点击查看详情", "", "点击查看详情", "", ""};
     private Intent intent;
 
     @Override
@@ -100,24 +100,30 @@ public class ReportTeDisRActivity extends BaseActivity {
                         startActivity(intent);
                         break;
 
-                    case 12:
-                        intent = new Intent(ReportTeDisRActivity.this, EditActivity.class);
-                        intent.putExtra(Constant.EDIT_TITLE,"现场实施情况");
+                    case 13:
+                        intent = new Intent(ReportTeDisRActivity.this, RealityInfoActivity.class);
+                        intent.putExtra(Constant.EDIT_TITLE,"现场实操情况");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.r_t_d_r_02));
                         startActivity(intent);
                         break;
 
-                    case 13:
-                        intent = new Intent(ReportTeDisRActivity.this, EditActivity.class);
+                    case 14:
+                        intent = new Intent(ReportTeDisRActivity.this, RealityIssueInfoActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"现场问题隐患");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.r_t_d_r_03));
                         startActivity(intent);
                         break;
 
-                    case 14:
+                    case 15:
                         intent = new Intent(ReportTeDisRActivity.this, EditActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"施工建议&配合措施");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.r_t_d_r_04));
+                        startActivity(intent);
+                        break;
+
+                     case 12:
+                        intent = new Intent(ReportTeDisRActivity.this, RealityInfoActivity.class);
+                        intent.putExtra(Constant.EDIT_TITLE,"现场工程情况");
                         startActivity(intent);
                         break;
                     default:
@@ -132,7 +138,7 @@ public class ReportTeDisRActivity extends BaseActivity {
         textBeanList.clear();
         if (tv01.length == et02.length) {
             for (int i = 0; i < tv01.length; i++) {
-                if (i == 0 || i == 8 || i == 12 || i == 14) {
+                if (i == 0 || i == 8 || i == 12 || i == 14 || i== 15) {
                     textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_BTN_R, tv01[i], et02[i]));
                 } else if (i == 7) {
                     textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_BTN_D, tv01[i], et02[i]));

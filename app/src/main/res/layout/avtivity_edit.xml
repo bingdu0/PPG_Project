@@ -1,34 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_white">
+    android:background="@color/bg_white"
+    android:orientation="vertical"
+    >
 
     <include
         android:id="@+id/base_bar_layout"
         layout="@layout/base_bar" />
+    <LinearLayout
+        android:id="@+id/ll_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toBottomOf="@+id/base_bar_layout"
+
+    >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="进展:"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_s" />
+
+        <TextView
+            android:id="@+id/tv_sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="选择进展情况"
+            android:textColor="@color/test_color_base"
+            android:textSize="@dimen/test_s" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:src="@drawable/back_d_e" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="如何配合控制"
+        android:textSize="@dimen/test_ss"
+        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/btn_marginTB"
-        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:background="@drawable/bg_frame_tv"
         android:gravity="top"
         android:hint="请输入"
         android:inputType="textMultiLine"
         android:padding="@dimen/text_paddingLR"
+        android:layout_margin="@dimen/activity_vertical_margin"
         android:textColor="@color/test_color_feeble"
         android:textColorHint="@color/test_color_grey"
-        app:layout_constraintBottom_toTopOf="@+id/btn_01"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/base_bar_layout" />
+        />
+<TextView
+    android:id="@+id/tv_2"
+    android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="施工注意要点"
+        android:textSize="@dimen/test_ss"
+        android:textColor="@color/black"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:visibility="gone"
+        />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:background="@drawable/bg_frame_tv"
+        android:gravity="top"
+        android:hint="请输入如何配置控制内容"
+        android:inputType="textMultiLine"
+        android:padding="@dimen/text_paddingLR"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:textColor="@color/test_color_feeble"
+        android:textColorHint="@color/test_color_grey"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/btn_01"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/btn_height"
         android:layout_marginBottom="@dimen/btn_marginTB"
         android:layout_marginLeft="@dimen/btn_marginLR"
@@ -37,7 +111,10 @@
         android:text="@string/affirm"
         android:textColor="@color/text_color_blue"
         android:textSize="@dimen/test_m"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+
+
+        />
+
+
+
+</LinearLayout>
