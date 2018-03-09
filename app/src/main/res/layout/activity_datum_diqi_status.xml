@@ -344,12 +344,14 @@
                     android:src="@drawable/back_d_e" />
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_vertical_margin"
                 android:background="@color/line_color" />
 
             <LinearLayout
+                android:id="@+id/ll_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -383,6 +385,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -414,6 +417,7 @@
                     android:src="@drawable/back_d_e" />
 
             </LinearLayout>
+
             <Button
                 android:id="@+id/btn_01"
                 android:layout_width="match_parent"

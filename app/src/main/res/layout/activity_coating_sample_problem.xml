@@ -1,9 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.ppg.mvp.view.activity.CoatingSampleProblemActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/base_bar"></include>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:text="竞品产品施工及颜色效果" />
+
+            <include layout="@layout/base_line"></include>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/cb_other"
+                android:background="@drawable/bg_frame_tv"
+                android:gravity="top"
+                android:hint="请输入具体情况"
+                android:inputType="textMultiLine"
+                android:minHeight="120dp"
+                android:padding="@dimen/text_paddingLR"
+                android:textColor="@color/test_color_feeble"
+                android:textColorHint="@color/test_color_grey" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_10"
+                android:text="竞品产品施工及颜色效果" />
+
+            <include layout="@layout/base_line"></include>
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_below="@+id/cb_other"
+                android:background="@drawable/bg_frame_tv"
+                android:gravity="top"
+                android:hint="请输入具体情况"
+                android:inputType="textMultiLine"
+                android:minHeight="120dp"
+                android:padding="@dimen/text_paddingLR"
+                android:textColor="@color/test_color_feeble"
+                android:textColorHint="@color/test_color_grey" />
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_coating_sample_problem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            </android.support.v7.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/btn_01"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginBottom="@dimen/btn_marginTB"
+                android:layout_marginLeft="@dimen/btn_marginLR"
+                android:layout_marginRight="@dimen/btn_marginLR"
+                android:background="@drawable/selector_bg_btn"
+                android:text="@string/affirm"
+                android:textColor="@color/text_color_blue"
+                android:textSize="@dimen/test_m"
+
+
+                />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -13,6 +13,7 @@ import com.ppg.base.BaseFragment;
 import com.ppg.base.BasePresenter;
 import com.ppg.bean.TestBean;
 import com.ppg.mvp.view.activity.ReportSeReActivity;
+import com.ppg.mvp.view.activity.ReportTeReActivity;
 import com.ppg.mvp.view.adapter.TeDisAdapter;
 
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class TempletReportFragment extends BaseFragment {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
 //                Intent intent=new Intent(getActivity(), ReportTeReActivity.class);
-                Intent intent=new Intent(getActivity(), ReportSeReActivity.class);
+                Intent intent=new Intent(getActivity(), ReportTeReActivity.class);
 
                 startActivity(intent);
             }

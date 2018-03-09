@@ -26,7 +26,7 @@ public class PrMsgRAdapter extends BaseMultiItemQuickAdapter<TestBean, BaseViewH
         this.mContext = context;
         addItemType(Constant.ITEM_TYPE_TV_TV_BTN_D, R.layout.item_tv_tv_btn_d);
         addItemType(Constant.ITEM_TYPE_TV_EV, R.layout.item_tv_et);
-        addItemType(Constant.ITEM_TYPE_IMG_IMG_ADD, R.layout.item_img_img_add);
+        addItemType(Constant.ITEM_TYPE_IMG_IMG_ADD, R.layout.item_img_img_add);  //图片选择
         addItemType(Constant.ITEM_TYPE_BTN, R.layout.item_btn);
     }
 

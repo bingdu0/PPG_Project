@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <include layout="@layout/base_bar"></include>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@color/white"
-            >
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -24,7 +23,7 @@
 
                 >
 
-                <include layout="@layout/layout_nizi"/>
+                <include layout="@layout/layout_nizi" />
 
 
                 <LinearLayout
@@ -43,6 +42,7 @@
                         android:text="是否养护："
                         android:textColor="@color/test_color_base"
                         android:textSize="@dimen/test_s" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -51,7 +51,7 @@
 
                 </LinearLayout>
 
-<LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -67,6 +67,7 @@
                         android:text="打磨："
                         android:textColor="@color/test_color_base"
                         android:textSize="@dimen/test_s" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -75,7 +76,7 @@
 
                 </LinearLayout>
 
-<LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -91,6 +92,7 @@
                         android:text="腻子强度："
                         android:textColor="@color/test_color_base"
                         android:textSize="@dimen/test_s" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -99,7 +101,7 @@
 
                 </LinearLayout>
 
-<LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -115,6 +117,7 @@
                         android:text="基面碱性（PH值）："
                         android:textColor="@color/test_color_base"
                         android:textSize="@dimen/test_s" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -123,7 +126,7 @@
 
                 </LinearLayout>
 
-<LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -139,6 +142,7 @@
                         android:text="基面含水率："
                         android:textColor="@color/test_color_base"
                         android:textSize="@dimen/test_s" />
+
                     <ImageView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -148,14 +152,15 @@
                 </LinearLayout>
 
 
-
-
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/activity_vertical_margin"
                 android:background="@color/line_color" />
+
             <LinearLayout
+                android:id="@+id/ll_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -189,6 +194,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"

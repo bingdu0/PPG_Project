@@ -20,9 +20,10 @@ import butterknife.BindView;
 
 /**
  * Created by lixu on 2018/3/9.
+ * 上次巡检问题落实情况
  */
 
-public class DatumIssueFinishStatusActivity extends BaseActivity{
+public class DatumIssueFinishStatusActivity extends BaseActivity {
     private HomeAdapter homeAdapter;
     private LinearLayoutManager linearLayoutManager;
 
@@ -30,6 +31,7 @@ public class DatumIssueFinishStatusActivity extends BaseActivity{
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_datum_issue_list;
@@ -49,14 +51,12 @@ public class DatumIssueFinishStatusActivity extends BaseActivity{
         testBeans.add(new TestBean());
         testBeans.add(new TestBean());
 
-        homeAdapter = new HomeAdapter(R.layout.item_datum_issue_finish_status,testBeans);
+        homeAdapter = new HomeAdapter(R.layout.item_datum_issue_finish_status, testBeans);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(homeAdapter);
-
-
 
 
     }
@@ -66,7 +66,7 @@ public class DatumIssueFinishStatusActivity extends BaseActivity{
         homeAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Intent gIntent = new Intent(DatumIssueFinishStatusActivity.this,IssueInfoActivity.class);
+                Intent gIntent = new Intent(DatumIssueFinishStatusActivity.this, IssueInfoActivity.class);
                 startActivity(gIntent);
             }
         });
