@@ -99,21 +99,21 @@ public class ReportHaCoActivity extends BaseActivity {
                         startActivity(intent);
                         break;
                     case 11:
-                        intent = new Intent(ReportHaCoActivity.this, EditImgAddActivity.class);
+                        intent = new Intent(ReportHaCoActivity.this, RealityIssueCollectActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"现场问题查询及信息收集");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.re_ha_co_02));
                         startActivity(intent);
                         break;
 
                     case 12:
-                        intent = new Intent(ReportHaCoActivity.this, EditActivity.class);
+                        intent = new Intent(ReportHaCoActivity.this, RealityIssueAnalyzeActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"现场遇到问题分析");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.re_ha_co_03));
                         startActivity(intent);
                         break;
 
                     case 13:
-                        intent = new Intent(ReportHaCoActivity.this, EditActivity.class);
+                        intent = new Intent(ReportHaCoActivity.this, RealityIssueChangeActivity.class);
                         intent.putExtra(Constant.EDIT_TITLE,"最终解决方案及整改措施");
                         intent.putExtra(Constant.EDIT_HINT,BaseApplication.getContext().getResources().getString(R.string.re_ha_co_04));
                         startActivity(intent);

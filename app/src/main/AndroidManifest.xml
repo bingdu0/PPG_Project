@@ -148,6 +148,71 @@
             android:name=".mvp.view.activity.ComplainBrieflyActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 现场问题查询及信息收集 -->
+        <activity
+            android:name=".mvp.view.activity.RealityIssueCollectActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 施工建议及整改措施 -->
+        <activity
+            android:name=".mvp.view.activity.RealityIssueChangeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 现场遇到问题分析 -->
+        <activity
+            android:name=".mvp.view.activity.RealityIssueAnalyzeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 基面问题及整改情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumIssueChangeActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 腻子施工情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumNiZiStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 底漆施工情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumDiQiStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 中层或面漆施工情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumZcmqStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <!-- 现场工程情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <!-- 现场问题总结分析  施工建议及整改措施 -->
+        <activity
+            android:name=".mvp.view.activity.DatumOtherInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+<!-- 本次项目主要问题 -->
+        <activity
+            android:name=".mvp.view.activity.DatumIssueInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+<!-- 上次巡检问题落实情况 -->
+        <activity
+            android:name=".mvp.view.activity.DatumIssueFinishStatusActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+
         <activity
             android:name=".mvp.view.activity.ImageActivity"
             android:screenOrientation="portrait"

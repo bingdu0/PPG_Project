@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/base_bar"></include>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/height_search"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="目前进展:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/test_s" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:src="@drawable/back_d_e" />
+
+            </LinearLayout>
+            <include layout="@layout/base_line"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/height_search"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="已施工楼号或面积:"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/test_s" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="158756.78平方米"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    />
+
+            </LinearLayout>
+            <include layout="@layout/base_line"></include>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/height_search"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:text="已施工面的整体质量描述"
+                android:textColor="@color/black"
+
+                />
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@drawable/bg_frame_tv"
+                android:gravity="top"
+                android:hint="请输入相关描述"
+                android:inputType="textMultiLine"
+                android:minHeight="140dp"
+                android:padding="@dimen/text_paddingLR"
+                android:textColor="@color/test_color_feeble"
+                android:textColorHint="@color/test_color_grey"
+                android:visibility="visible" />
+            <Button
+                android:id="@+id/btn_01"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginBottom="@dimen/btn_marginTB"
+                android:layout_marginLeft="@dimen/btn_marginLR"
+                android:layout_marginRight="@dimen/btn_marginLR"
+                android:background="@drawable/selector_bg_btn"
+                android:text="@string/affirm"
+                android:textColor="@color/text_color_blue"
+                android:textSize="@dimen/test_m"
+
+
+                />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

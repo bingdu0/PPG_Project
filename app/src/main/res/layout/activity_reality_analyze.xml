@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_bar"></include>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:text="产品质量"
+
+            />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_tv"
+        android:hint="产品质量说明"
+        android:minHeight="120dp"
+       android:layout_marginLeft="@dimen/activity_vertical_margin"
+       android:layout_marginRight="@dimen/activity_vertical_margin"
+       android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="@dimen/dp_4"
+        android:gravity="top"
+        />
+        <include layout="@layout/base_line"></include>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:text="施工工艺"
+
+            />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_tv"
+        android:hint="施工工艺说明"
+        android:minHeight="120dp"
+       android:layout_marginLeft="@dimen/activity_vertical_margin"
+       android:layout_marginRight="@dimen/activity_vertical_margin"
+       android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="@dimen/dp_4"
+        android:gravity="top"
+        />
+        <include layout="@layout/base_line"></include>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:text="基面情况"
+
+            />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_tv"
+        android:hint="基面情况"
+        android:minHeight="120dp"
+       android:layout_marginLeft="@dimen/activity_vertical_margin"
+       android:layout_marginRight="@dimen/activity_vertical_margin"
+       android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="@dimen/dp_4"
+        android:gravity="top"
+        />
+        <include layout="@layout/base_line"></include>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:text="腻子问题"
+
+            />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_tv"
+        android:hint="腻子问题"
+        android:minHeight="120dp"
+       android:layout_marginLeft="@dimen/activity_vertical_margin"
+       android:layout_marginRight="@dimen/activity_vertical_margin"
+       android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="@dimen/dp_4"
+        android:gravity="top"
+        />
+        <include layout="@layout/base_line"></include>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:text="施工环境等"
+
+            />
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_frame_tv"
+        android:hint="施工环境等"
+        android:minHeight="120dp"
+       android:layout_marginLeft="@dimen/activity_vertical_margin"
+       android:layout_marginRight="@dimen/activity_vertical_margin"
+       android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:padding="@dimen/dp_4"
+        android:gravity="top"
+        />
+
+
+
+
+        <Button
+            android:id="@+id/btn_01"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height"
+            android:layout_marginBottom="@dimen/btn_marginTB"
+            android:layout_marginLeft="@dimen/btn_marginLR"
+            android:layout_marginRight="@dimen/btn_marginLR"
+            android:background="@drawable/selector_bg_btn"
+            android:text="@string/affirm"
+            android:textColor="@color/text_color_blue"
+            android:textSize="@dimen/test_m"
+
+
+            />
+
+
+    </LinearLayout>
+
+</ScrollView>
+</LinearLayout>

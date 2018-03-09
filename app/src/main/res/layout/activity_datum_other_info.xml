@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <include layout="@layout/base_bar" />
+
+    <TextView
+        android:id="@+id/tv_other_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/height_search"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:text="现场问题总结分析"
+        android:textColor="@color/black"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="140dp"
+        android:background="@drawable/bg_frame_tv"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:hint="请输入相关内容"
+        android:textSize="@dimen/test_s"
+        android:gravity="top"
+        android:padding="@dimen/dp_4"
+        />
+    <Button
+        android:id="@+id/btn_01"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height"
+        android:layout_marginBottom="@dimen/btn_marginTB"
+        android:layout_marginLeft="@dimen/btn_marginLR"
+        android:layout_marginRight="@dimen/btn_marginLR"
+        android:background="@drawable/selector_bg_btn"
+        android:text="@string/affirm"
+        android:textColor="@color/text_color_blue"
+        android:textSize="@dimen/test_m"
+
+
+        />
+</LinearLayout>
