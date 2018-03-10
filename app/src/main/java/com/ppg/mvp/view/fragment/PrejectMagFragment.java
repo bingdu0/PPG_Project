@@ -87,11 +87,16 @@ public class PrejectMagFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        EventBus.getDefault().register(this);
+       // EventBus.getDefault().register(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        linearLayoutManager.setAutoMeasureEnabled(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
         mAdapter = new PrMsgRAdapter(getActivity(), textBeanList);
+
         recyclerView.setAdapter(mAdapter);
 
 
@@ -146,6 +151,11 @@ public class PrejectMagFragment extends BaseFragment {
 
 
         getData();
+    }
+
+    @Override
+    protected boolean isRegisterEventBus() {
+        return true;
     }
 
     @Override
