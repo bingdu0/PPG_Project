@@ -112,20 +112,19 @@
                 android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
         </RelativeLayout>
 
-        <Button
-            android:id="@+id/btn_01"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/btn_height"
-            android:layout_marginBottom="@dimen/btn_marginTB"
-            android:layout_marginLeft="@dimen/btn_marginLR"
-            android:layout_marginRight="@dimen/btn_marginLR"
-            android:background="@drawable/selector_bg_btn"
-            android:text="@string/affirm"
-            android:textColor="@color/text_color_blue"
-            android:textSize="@dimen/test_m"
+            <Button
+                android:id="@+id/btn_01"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_height"
+                android:layout_marginBottom="@dimen/btn_marginTB"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:background="@drawable/selector_bg_btn"
+                android:text="@string/affirm"
+                android:textColor="@color/black"
+                android:textSize="@dimen/test_m"
 
+                />
 
-            />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

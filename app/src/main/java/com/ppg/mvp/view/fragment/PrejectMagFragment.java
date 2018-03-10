@@ -1,8 +1,12 @@
 package com.ppg.mvp.view.fragment;
 
+import android.Manifest;
 import android.content.Intent;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -14,14 +18,27 @@ import com.ppg.base.BasePresenter;
 import com.ppg.bean.TestBean;
 import com.ppg.constants.Constant;
 import com.ppg.mvp.view.activity.CameraActivity;
+import com.ppg.mvp.view.activity.ComplainBrieflyActivity;
+import com.ppg.mvp.view.activity.ImageActivity;
+import com.ppg.mvp.view.adapter.MyImgAdapter;
 import com.ppg.mvp.view.adapter.PrMsgRAdapter;
 import com.ppg.utils.LogUtils;
 import com.ppg.utils.PopupWindowUtil;
+import com.ppg.utils.ToastUtil;
+import com.ppg.utils.ToolUtil;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
+import me.nereo.multi_image_selector.MultiImageSelector;
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 /**
  * Create by Donny.
@@ -35,8 +52,23 @@ public class PrejectMagFragment extends BaseFragment {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
     private PrMsgRAdapter mAdapter;
-    private String[] tv01 = {"项目状态：", "项目名称：", "区域：", "城市：", "地址：", "面积：", "产品体系：", "经销商名称：", "销售人员：", "技术服务人员：", "施工单位：", "监理单位：", "创建日期：", "", "保存"};
-    private String[] et02 = {"进行中", "请输入项目名称", "", "请输入城市信息", "请输入项目地址", "请输入面积信息", "请输入施工方负责人", "请输入经销商名称", "请输入销售人员信息", "请输入技术服务人员信息", "请输入施工单位信息", "请输入监理单位信息", "2017-10-23", "", ""};
+    private String[] tv01 = {"项目状态：", "项目名称：", "区域：", "城市：", "地址：", "面积：", "产品体系：", "经销商名称：", "销售人员：", "技术服务人员：", "施工单位：", "监理单位：", "创建日期：", };
+    private String[] et02 = {"进行中", "请输入项目名称", "", "请输入城市信息", "请输入项目地址", "请输入面积信息", "请输入施工方负责人", "请输入经销商名称", "请输入销售人员信息", "请输入技术服务人员信息", "请输入施工单位信息", "请输入监理单位信息", "2017-10-23",};
+
+
+
+
+    /**
+     * 多张图片相关
+     */
+    private int IMAGE_MAX = 6;
+    private MyImgAdapter myImgAdapter;
+    private GridLayoutManager gridLayoutManager;
+    private ArrayList<String> mImageList = new ArrayList<>();
+    public static final int MULTI_IMG = 130;
+
+    @BindView(R.id.rv_horizontal)
+    RecyclerView recyclerViewImg;
 
 
     public static PrejectMagFragment getInstance() {
@@ -55,11 +87,64 @@ public class PrejectMagFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        EventBus.getDefault().register(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         mAdapter = new PrMsgRAdapter(getActivity(), textBeanList);
         recyclerView.setAdapter(mAdapter);
+
+
+
+
+
+        myImgAdapter = new MyImgAdapter(getActivity(), mImageList);
+        gridLayoutManager = new GridLayoutManager(getActivity(), 3);
+        recyclerViewImg.setLayoutManager(gridLayoutManager);
+        recyclerViewImg.setHasFixedSize(true);
+        recyclerViewImg.setItemAnimator(new DefaultItemAnimator());
+        recyclerViewImg.setAdapter(myImgAdapter);
+        myImgAdapter.setOnItemClickListener(new MyImgAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, final int position) {
+
+                RxPermissions rxPermissions = new RxPermissions(getActivity());
+                rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        if (aBoolean) {
+                            Intent picIntent = new Intent(getActivity(), ImageActivity.class);
+                            picIntent.putExtra(ImageActivity.IMAGE_INTENT, mImageList.get(position));
+                            startActivity(picIntent);
+                        } else {
+                            // 用户拒绝了该权限，并且选中不再询问,引导用户跳转权限管理页面
+                        }
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onAddClick(View view, int position) {
+                if (ToolUtil.isEmpty(mImageList) || mImageList.size() < IMAGE_MAX) {
+                    startCameras();
+                } else {
+                    ToastUtil.showShort("图片张数上限,请在删除部分照片后重试");
+                }
+            }
+
+            @Override
+            public void onDeleteClick(View view, int position) {
+                showSelectDialog(position);
+            }
+        });
+
+
+
+
+
+
         getData();
     }
 
@@ -135,12 +220,12 @@ public class PrejectMagFragment extends BaseFragment {
                     case 12:
                         textBeanList.add(new TestBean(Constant.ITEM_TYPE_TV_TV_BTN_D, tv01[i], et02[i]));
                         break;
-                    case 13:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_IMG_IMG_ADD, tv01[i], et02[i]));
-                        break;
-                    case 14:
-                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_BTN, tv01[i], et02[i]));
-                        break;
+//                    case 13:
+//                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_IMG_IMG_ADD, tv01[i], et02[i]));
+//                        break;
+//                    case 14:
+//                        textBeanList.add(new TestBean(Constant.ITEM_TYPE_BTN, tv01[i], et02[i]));
+//                        break;
                     case 15:
 
                         break;
@@ -196,5 +281,83 @@ public class PrejectMagFragment extends BaseFragment {
         popupWindow.show(mView, 6);
     }
 
+    private void startCameras() {
+        //添加相机，存储权限
+        RxPermissions rxPermissions = new RxPermissions(getActivity());
+        rxPermissions.request(Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE).subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean aBoolean) throws Exception {
+                if (aBoolean) {
+                    MultiImageSelector.create()
+                            .showCamera(true) // 是否显示相机. 默认为显示
+                            .count(6) // 最大选择图片数量, 默认为9. 只有在选择模式为多选时有效
+                            .single() // 单选模式
+                            .multi() // 多选模式, 默认模式;
+                            .origin(mImageList)
+                            .start(getActivity(), MULTI_IMG);
+                } else {
+                    // 用户拒绝了该权限，并且选中不再询问,引导用户跳转权限管理页面
+                }
+            }
+        });
+
+
+    }
+
+    private void showSelectDialog(final int pos) {
+        if (!ToolUtil.isEmpty(mImageList)) {
+            mImageList.remove(pos);
+            myImgAdapter.notifyDataSetChanged();
+        }
+
+        /*new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("是否删除当前照片?")
+                // .setContentText("删除后无法恢复!")
+                .setConfirmText("是")
+                .setCancelText("取消")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                        if (!ToolUtil.isEmpty(mImageList)) {
+                            mImageList.remove(pos);
+                            myImgAdapter.notifyDataSetChanged();
+                        }
+                    }
+                })
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        sweetAlertDialog.dismissWithAnimation();
+                    }
+                })
+                .show();*/
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+  //      Log.d("qqqq","onActivityReult ==");
+        super.onActivityResult(requestCode, resultCode, data);
+
+//        if (resultCode != getActivity().RESULT_OK) {
+//            return;
+//        }
+//        switch (requestCode) {
+//            case MULTI_IMG: //多张图片返回
+//                ArrayList<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
+//                mImageList.clear();
+//                mImageList.addAll(path);
+//                myImgAdapter.notifyDataSetChanged();
+//                break;
+//        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(ArrayList<String> path) {
+        Log.d("qqqq","传过来的个数=="+path.size());
+        mImageList.clear();
+        mImageList.addAll(path);
+        myImgAdapter.notifyDataSetChanged();
+    }
 
 }

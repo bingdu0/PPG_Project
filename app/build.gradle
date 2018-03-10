@@ -75,6 +75,10 @@ dependencies {
     //compile 'com.github.lovetuzitong:MultiImageSelector:1.2'
     compile 'com.hx.multi-image-selector:multi-image-selector:1.2.2'
 
+    //EventBus
+    compile 'org.greenrobot:eventbus:3.1.1'
+
+
     //WebView 封装
     compile 'com.just.agentweb:agentweb:4.0.2'
 }

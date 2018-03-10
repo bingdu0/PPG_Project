@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -28,7 +29,11 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
+
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 /**
  * Create by Donny.
@@ -54,6 +59,7 @@ public class ProjectDetailActivity extends BaseActivity implements View.OnClickL
 
     @Override
     protected void initData() {
+
         baseTitle.setText("项目详情");
         btnAdd.setVisibility(View.VISIBLE);
         mVpContent = findViewById(R.id.vp_content);
@@ -139,5 +145,20 @@ public class ProjectDetailActivity extends BaseActivity implements View.OnClickL
         ViewPagerHelper.bind(tabs, mVpContent);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("qqqq","222onActivityReult ==");
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+        switch (requestCode) {
+            case PrejectMagFragment.MULTI_IMG: //多张图片返回
+                ArrayList<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
+                EventBus.getDefault().post(path);
 
+                break;
+        }
+
+    }
 }
