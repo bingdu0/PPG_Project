@@ -75,7 +75,7 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     protected abstract void initData();
 
     protected abstract void initListener();
-
+    //protected abstract void onInvisible();
 
     /**
      * 获取RxBus信息
@@ -130,14 +130,14 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
     @Override
     public void onPause() {
         super.onPause();
-        if (isRegisterEventBus()) {
-            EventBus.getDefault().unregister(this);
-        }
+
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+
         if (mPresenter != null)
             mPresenter.detachView();
         if (rxBus != null) {
@@ -155,4 +155,56 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         return false;
     }
 
+
+
+
+
+
+
+    /**
+     * Fragment当前状态是否可见
+     */
+
+    protected boolean isVisible;
+    protected boolean isFirst = true;
+    protected boolean isPrepared = false;
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (getUserVisibleHint()) {
+            isVisible = true;
+            if(isFirst && isPrepared) {
+                onVisible();
+            }
+        } else {
+            isVisible = false;
+            onInvisible();
+        }
+
+    }
+
+
+    /**
+     * 可见
+     */
+
+    protected void onVisible() {
+        isFirst = false;
+
+    }
+
+
+    /**
+     * 不可见
+     */
+
+    public void onInvisible() {
+        Log.d("qqqqq","隐藏调");
+        if(EventBus.getDefault().isRegistered(this)){
+            Log.d("qqqqq","隐藏调用走这里");
+            EventBus.getDefault().unregister(this);
+        }
+    }
 }

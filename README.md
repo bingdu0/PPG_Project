@@ -35,11 +35,13 @@
    修改项目信息切换导致EventBus的bug,及滑动问题
    解决中层或面漆施工情况，滑动问题
 # v0.0.1.0
-   完成找到的所有选择dialog并简单封装，使用方法：
+   1、完成找到的所有选择dialog并简单封装，使用方法：
    BottomeListDialog.showBottomeDialog(Context context
    ,Activity activity
    ,View rootview
    , List<ScreenDialogBean> screenStatusList
    ,OnItemClickListener monItemClickListener)
+# v0.0.1.1
+   1、修改项目信息图片bug
 
 

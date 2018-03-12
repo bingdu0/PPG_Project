@@ -2,12 +2,16 @@ package com.ppg.mvp.view.fragment;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -87,9 +91,13 @@ public class PrejectMagFragment extends BaseFragment {
         return null;
     }
 
+
+
+
     @Override
     protected void initData() {
-       // EventBus.getDefault().register(this);
+
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         linearLayoutManager.setSmoothScrollbarEnabled(true);
@@ -154,6 +162,7 @@ public class PrejectMagFragment extends BaseFragment {
         return true;
     }
 
+
     @Override
     protected void initListener() {
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
@@ -170,7 +179,6 @@ public class PrejectMagFragment extends BaseFragment {
                     BottomeListDialog.showBottomeDialog(getActivity(), getActivity(), mView, mList, new BottomeListDialog.OnItemClickListener() {
                         @Override
                         public void onItemClick(View view, int position) {
-                            Log.d("qqqq","点击监听1==="+position);
                             ToastUtil.showShort(mList.get(position).getText());
                         }
                     });
@@ -384,4 +392,10 @@ public class PrejectMagFragment extends BaseFragment {
         myImgAdapter.notifyDataSetChanged();
     }
 
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }
