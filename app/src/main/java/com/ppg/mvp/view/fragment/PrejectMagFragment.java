@@ -15,6 +15,7 @@ import com.ppg.R;
 import com.ppg.base.BaseApplication;
 import com.ppg.base.BaseFragment;
 import com.ppg.base.BasePresenter;
+import com.ppg.bean.ScreenDialogBean;
 import com.ppg.bean.TestBean;
 import com.ppg.constants.Constant;
 import com.ppg.mvp.view.activity.CameraActivity;
@@ -22,6 +23,7 @@ import com.ppg.mvp.view.activity.ComplainBrieflyActivity;
 import com.ppg.mvp.view.activity.ImageActivity;
 import com.ppg.mvp.view.adapter.MyImgAdapter;
 import com.ppg.mvp.view.adapter.PrMsgRAdapter;
+import com.ppg.utils.BottomeListDialog;
 import com.ppg.utils.LogUtils;
 import com.ppg.utils.PopupWindowUtil;
 import com.ppg.utils.ToastUtil;
@@ -69,7 +71,7 @@ public class PrejectMagFragment extends BaseFragment {
 
     @BindView(R.id.rv_horizontal)
     RecyclerView recyclerViewImg;
-
+    List<ScreenDialogBean> mList;
 
     public static PrejectMagFragment getInstance() {
         return mPrejectMagFragment == null ? new PrejectMagFragment() : mPrejectMagFragment;
@@ -87,11 +89,16 @@ public class PrejectMagFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        EventBus.getDefault().register(this);
+       // EventBus.getDefault().register(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(BaseApplication.getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setSmoothScrollbarEnabled(true);
+        linearLayoutManager.setAutoMeasureEnabled(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setNestedScrollingEnabled(false);
         mAdapter = new PrMsgRAdapter(getActivity(), textBeanList);
+
         recyclerView.setAdapter(mAdapter);
 
 
@@ -139,13 +146,12 @@ public class PrejectMagFragment extends BaseFragment {
                 showSelectDialog(position);
             }
         });
-
-
-
-
-
-
         getData();
+    }
+
+    @Override
+    protected boolean isRegisterEventBus() {
+        return true;
     }
 
     @Override
@@ -153,9 +159,44 @@ public class PrejectMagFragment extends BaseFragment {
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                if(position == 0){
+                    View mView = getView();
+                    mList = new ArrayList<>();
+                    mList.add(new ScreenDialogBean("新建",false));
+                    mList.add(new ScreenDialogBean("施工中",false));
+                    mList.add(new ScreenDialogBean("完成",false));
+                    mList.add(new ScreenDialogBean("已验收",false));
+                    mList.add(new ScreenDialogBean("取消",false));
+                    BottomeListDialog.showBottomeDialog(getActivity(), getActivity(), mView, mList, new BottomeListDialog.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            Log.d("qqqq","点击监听1==="+position);
+                            ToastUtil.showShort(mList.get(position).getText());
+                        }
+                    });
+
+                }else if(position == 2){
+                    View mView = getView();
+                    mList = new ArrayList<>();
+                    mList.add(new ScreenDialogBean("华东区",false));
+                    mList.add(new ScreenDialogBean("华中区",false));
+                    mList.add(new ScreenDialogBean("华南区",false));
+                    mList.add(new ScreenDialogBean("西南区",false));
+                    mList.add(new ScreenDialogBean("西北区",false));
+                    BottomeListDialog.showBottomeDialog(getActivity(), getActivity(), mView, mList, new BottomeListDialog.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            Log.d("qqqq","点击监听2==="+position);
+                            ToastUtil.showShort(mList.get(position).getText());
+                        }
+                    });
+
+                }
+
                 switch (view.getId()) {
                     case R.id.btn_back_d:
-                        setPopupWindow(view,position);
+                        //setPopupWindow(view,position);
+
                         break;
                     case R.id.imageView4:
                         LogUtils.i("YWQ","点击摄像头");
@@ -334,23 +375,6 @@ public class PrejectMagFragment extends BaseFragment {
                 .show();*/
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-  //      Log.d("qqqq","onActivityReult ==");
-        super.onActivityResult(requestCode, resultCode, data);
-
-//        if (resultCode != getActivity().RESULT_OK) {
-//            return;
-//        }
-//        switch (requestCode) {
-//            case MULTI_IMG: //多张图片返回
-//                ArrayList<String> path = data.getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT);
-//                mImageList.clear();
-//                mImageList.addAll(path);
-//                myImgAdapter.notifyDataSetChanged();
-//                break;
-//        }
-    }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEvent(ArrayList<String> path) {

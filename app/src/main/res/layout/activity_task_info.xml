@@ -107,6 +107,7 @@
                 android:background="@color/bg_black_d" />
 
             <LinearLayout
+                android:id="@+id/ll_progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -122,6 +123,7 @@
                     android:textSize="@dimen/test_s" />
 
                 <TextView
+                    android:id="@+id/tv_progress"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"

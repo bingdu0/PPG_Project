@@ -199,7 +199,7 @@ public class TaskManageActivity extends BaseActivity {
         rvTaskManager.setAdapter(mTaskManageAdapter);
 
         //项目状态初始化
-        dialogScreenAdapterStatus = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenStatusList);
+        dialogScreenAdapterStatus = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenStatusList,true);
         gridLayoutManagerStatus = new GridLayoutManager(TaskManageActivity.this,3);
         rvDialogStatus.setLayoutManager(gridLayoutManagerStatus);
         rvDialogStatus.setHasFixedSize(true);
@@ -207,7 +207,7 @@ public class TaskManageActivity extends BaseActivity {
         rvDialogStatus.setAdapter(dialogScreenAdapterStatus);
 
         //项目负责人初始化
-        dialogScreenAdapterPeople = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenPeopleList);
+        dialogScreenAdapterPeople = new DialogScreenAdapter(TaskManageActivity.this,R.layout.item_dialog_screen,screenPeopleList,true);
         gridLayoutManagerPeople = new GridLayoutManager(TaskManageActivity.this,3);
         rvDialogPeople.setLayoutManager(gridLayoutManagerPeople);
         rvDialogPeople.setHasFixedSize(true);

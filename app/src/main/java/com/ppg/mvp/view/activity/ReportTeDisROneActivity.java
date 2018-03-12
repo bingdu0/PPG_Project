@@ -2,6 +2,7 @@ package com.ppg.mvp.view.activity;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -9,11 +10,14 @@ import com.ppg.R;
 import com.ppg.base.BaseActivity;
 import com.ppg.base.BaseApplication;
 import com.ppg.base.BasePresenter;
+import com.ppg.bean.ScreenDialogBean;
 import com.ppg.bean.TestBean;
 import com.ppg.constants.Constant;
 import com.ppg.mvp.view.adapter.ReportTeDisROneAdapter;
+import com.ppg.utils.BottomeListDialog;
 import com.ppg.utils.LogUtils;
 import com.ppg.utils.PopupWindowUtil;
+import com.ppg.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +37,7 @@ public class ReportTeDisROneActivity extends BaseActivity{
     private ReportTeDisROneAdapter mAdapter;
     private String[] tv01 = {"项目名称：", "项目联系人：", "项目联系电话：", "项目地址：", "建筑房形：", "面积：", "注：更改房型面积及地址信息会直接更改项目基础数据：","确定"};
     private String[] et02 = {"上海喜来登大酒店", "刘三妹", "13666666666", "上海xx路xx号", "小高层", "12354565.89平米","",""};
-
+    List<ScreenDialogBean> mList;
     @Override
     protected int getLayoutId() {
       return R.layout.avtivity_report_te_dis_r_one;
@@ -60,7 +64,24 @@ public class ReportTeDisROneActivity extends BaseActivity{
         mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                PopupWindowUtil.setPopupWindow(BaseApplication.getContext(),textBeanList,mAdapter,view,position);
+                if(position == 4){
+                    View mView = getView();
+                    mList = new ArrayList<>();
+                    mList.add(new ScreenDialogBean("高层",false));
+                    mList.add(new ScreenDialogBean("小高层",false));
+                    mList.add(new ScreenDialogBean("多层",false));
+                    mList.add(new ScreenDialogBean("洋房或别墅",false));
+                    mList.add(new ScreenDialogBean("其他",false));
+                    BottomeListDialog.showBottomeDialog(ReportTeDisROneActivity.this, ReportTeDisROneActivity.this, mView, mList, new BottomeListDialog.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(View view, int position) {
+                            Log.d("qqqq","点击监听2==="+position);
+                            ToastUtil.showShort(mList.get(position).getText());
+                        }
+                    });
+                }
+                //PopupWindowUtil.setPopupWindow(BaseApplication.getContext(),textBeanList,mAdapter,view,position);
+
             }
         });
     }

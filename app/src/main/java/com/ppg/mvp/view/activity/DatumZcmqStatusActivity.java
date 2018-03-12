@@ -52,8 +52,13 @@ public class DatumZcmqStatusActivity extends BaseActivity{
         baseTitle.setText("中层或面漆施工情况");
         checkBoxSmallAdapter = new CheckBoxSmallAdapter(DatumZcmqStatusActivity.this,R.layout.item_small_checkbar,cbList);
         gridLayoutManager2 = new GridLayoutManager(DatumZcmqStatusActivity.this,3);
+
+        gridLayoutManager2.setSmoothScrollbarEnabled(true);
+        gridLayoutManager2.setAutoMeasureEnabled(true);
+
         rv1.setLayoutManager(gridLayoutManager2);
         rv1.setHasFixedSize(true);
+        rv1.setNestedScrollingEnabled(false);
         rv1.setItemAnimator(new DefaultItemAnimator());
         rv1.setAdapter(checkBoxSmallAdapter);
         initCbDataForTest();

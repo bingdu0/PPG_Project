@@ -49,8 +49,12 @@ public class MyProjectActivity extends BaseActivity{
     @BindView(R.id.tv_time)
     TextView tv_time;
 
+
+
+    //popupwindow相关组件
     RecyclerView rvDialogStatus;
     RecyclerView rvDialogPeople;
+
     private GridLayoutManager gridLayoutManagerStatus;
     private GridLayoutManager gridLayoutManagerPeople;
 
@@ -60,6 +64,8 @@ public class MyProjectActivity extends BaseActivity{
 
     private DialogScreenAdapter dialogScreenAdapterPeople;
     private List<ScreenDialogBean> screenPeopleList = new ArrayList<>();
+
+
     //popupwindow相关
     private PopupWindow mcontactsBottompopup;
     private View contactBottomPopulayout;
@@ -206,7 +212,7 @@ public class MyProjectActivity extends BaseActivity{
         recyclerView.setAdapter(projectAdapter);
 
         //项目状态初始化
-        dialogScreenAdapterStatus = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenStatusList);
+        dialogScreenAdapterStatus = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenStatusList,true);
         gridLayoutManagerStatus = new GridLayoutManager(MyProjectActivity.this,3);
         rvDialogStatus.setLayoutManager(gridLayoutManagerStatus);
         rvDialogStatus.setHasFixedSize(true);
@@ -214,7 +220,7 @@ public class MyProjectActivity extends BaseActivity{
         rvDialogStatus.setAdapter(dialogScreenAdapterStatus);
 
         //项目负责人初始化
-        dialogScreenAdapterPeople = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenPeopleList);
+        dialogScreenAdapterPeople = new DialogScreenAdapter(MyProjectActivity.this,R.layout.item_dialog_screen,screenPeopleList,true);
         gridLayoutManagerPeople = new GridLayoutManager(MyProjectActivity.this,3);
         rvDialogPeople.setLayoutManager(gridLayoutManagerPeople);
         rvDialogPeople.setHasFixedSize(true);

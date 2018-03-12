@@ -20,12 +20,14 @@ public class DialogScreenAdapter extends BaseItemDraggableAdapter<ScreenDialogBe
 
 
     private Context mContext;
-
+    private boolean isBc;//是否设置背景
     /**
+     *
      */
-    public DialogScreenAdapter(Context context, int layoutResId, @Nullable List<ScreenDialogBean> data) {
+    public DialogScreenAdapter(Context context, int layoutResId, @Nullable List<ScreenDialogBean> data,boolean isBc1) {
         super(layoutResId, data);
         this.mContext = context;
+        this.isBc = isBc1;
     }
 
     @Override
@@ -33,10 +35,12 @@ public class DialogScreenAdapter extends BaseItemDraggableAdapter<ScreenDialogBe
         if(!StringUtils.isEmpty(item.getText())) {
             helper.setText(R.id.tv_item_dialog_tag, item.getText());
         }
-        if(item.isSelect()){
-            helper.setBackgroundRes(R.id.tv_item_dialog_tag,R.drawable.bg_frame_tv_p);
-        }else{
-            helper.setBackgroundRes(R.id.tv_item_dialog_tag,R.drawable.bg_frame_tv);
+        if(isBc) {
+            if (item.isSelect()) {
+                helper.setBackgroundRes(R.id.tv_item_dialog_tag, R.drawable.bg_frame_tv_p);
+            } else {
+                helper.setBackgroundRes(R.id.tv_item_dialog_tag, R.drawable.bg_frame_tv);
+            }
         }
 
 
